@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Car Reseller</title>
+
+    <style>
+      .col{
+        color:white;
+      }
+    </style>
+  </head>
+  <body>
+        <nav class="navbar navbar-dark bg-danger shadow-lg">
+            <div class="container-fluid">
+                <a href="{% url 'home' %}" class="navbar-brand" style="color:white">Car Reseller</a>
+                <a href="{% url 'addcar' %}" class="navbar-brand" style="color:white">Add a Car</a>
+                <!-- <h3>{{user.is_authenticated}}</h3> -->
+                <form class="d-flex">
+                  {% if user.is_authenticated %}
+                    <h4 style="color:white">{{user.username}}</h4>
+                    <a href="{% url 'logout' %}" class="btn btn-link col">Logout</a>
+                  {% else %}
+                      <a href="{% url  'login_page' %}" class="navbar-brand">Login</a>
+                  {% endif %}
+                </form>
+            </div>
+        </nav>
+    
+    {% block start %}
+
+    {% endblock %}
+    
+  </body>
+</html>
